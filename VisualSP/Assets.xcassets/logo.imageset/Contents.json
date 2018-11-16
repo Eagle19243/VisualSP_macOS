@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "VisualSPIcon-64x64.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "VisualSP_128x128.png",
+      "filename" : "VisualSPIcon-128x128.png",
       "scale" : "2x"
     },
     {
