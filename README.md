@@ -1,0 +1,1 @@
+# VisualSP Safari App Extension
