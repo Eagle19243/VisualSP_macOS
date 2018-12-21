@@ -155,3 +155,5 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+package-lock.json
