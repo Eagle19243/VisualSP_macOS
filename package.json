@@ -1,0 +1,14 @@
+{
+    "name": "visual-sp",
+    "version": "1.0.1",
+    "description": "Visual SP Safari Extension",
+    "main": "gulpfile.js",
+    "devDependencies": {
+        "del": "^2.2.2",
+        "gulp": "^3.9.1",
+        "run-sequence": "^1.2.2",
+        "webpack": "^1.13.1",
+        "webpack-stream": "^3.2.0"
+    },
+    "author": "Eagle19243"
+}

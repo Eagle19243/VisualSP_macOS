@@ -21,13 +21,15 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 activeWindow?.getActiveTab(completionHandler: { (activeTab) in
                     activeTab?.getActivePage(completionHandler: { (activePage) in
                         activePage?.dispatchMessageToScript(withName: "GetVisualSPUserId", userInfo: [
-                            "data" : VSGlobal.getUserData()
+                            "data" : VSGlobal.getUserData() ?? ""
                         ])
                     })
                 })
             }
         } else if (messageName == "SetVisualSPUserId") {
-            VSGlobal.saveUserData(userData: userInfo?["data"])
+            if userInfo?["data"] != nil {
+                VSGlobal.saveUserData(userData: userInfo!["data"] as! String)
+            }
         }
     }
     

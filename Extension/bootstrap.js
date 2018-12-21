@@ -71,26 +71,28 @@ var VisualSP;
         };
         InlineHelpBootstrap.prototype.initialize = function () {
             var _this = this;
-            this.addScriptTag("https://visualsponline.azurewebsites.net/app/js/VisualSPHost.min.js?Extension=Chrome&Version=1.1.0." + (new Date).valueOf(), "Main", false);
             safari.self.addEventListener("message", _this.handleMessage);
-
+            if (process.env.ENV === "production") {
+                _this.addScriptTag("https://visualsponline.azurewebsites.net/app/js/VisualSPHost.min.js?Extension=Safari&Version=1.0.1." + (new Date).valueOf(), "Main", false);
+            } else if (process.env.ENV === "test") {
+                _this.addScriptTag("https://visualsponline-test.azurewebsites.net/app/js/VisualSPHost.min.js?Extension=Safari&Version=1.0.1." + (new Date).valueOf(), "Main", false);
+            } else {
+                _this.addScriptTag("https://localhost:8080/app/js/VisualSPHost.min.js?Extension=Safari&Version=1.0.1." + (new Date).valueOf(), "Main", false);
+            }
+            
             window.addEventListener("message", function (e) {
                 var windows = [];
                 var iframes = document.getElementsByTagName("iframe");
                 for (var i = 0; i < iframes.length; i++) {
                     windows.push(iframes[i].contentWindow);
                 }
+                                    
                 if (e.data.owner === "VisualSP") {
                     if (e.data.command === "GetUserId") {
                         _this.sendMessage("GetVisualSPUserId");
                     }
                     else if (e.data.command === "SetUserId") {
                         _this.sendMessage("SetVisualSPUserId", {"data": e.data.data});
-                    }
-                    else if (e.data.command === "GetChromeExtensionId") {
-                        for (var i = 0; i < windows.length; i++) {
-                            windows[i].postMessage({ owner: "VisualSP", command: "GetChromeExtensionIdResponse", data: "com.visualsp.macOS.safari", source: window.location.href }, "*");
-                        }
                     }
                     else if (e.data.command === "AddScriptTag") {
                         _this.addScriptTag(e.data.data.url, e.data.data.id, true);
@@ -106,6 +108,6 @@ var VisualSP;
     VisualSP.InlineHelpBootstrap = InlineHelpBootstrap;
 })(VisualSP || (VisualSP = {}));
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event) {
     (new VisualSP.InlineHelpBootstrap()).initialize();
-}
+});
