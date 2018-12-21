@@ -8,7 +8,7 @@ var webpackConfig = {
         host: './Extension/bootstrap.js'
     },
     output: {
-        filename: './Extension/bootstrap.min.js',
+        filename: 'bootstrap.min.js',
     }
 };
 
@@ -19,7 +19,6 @@ function addCommonPlugins(build) {
 }
 
 gulp.task('build-Debug', function (cb) {
-    webpackConfig.devtool = 'source-map';
     const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
     addCommonPlugins(ENV);
     return gulp
