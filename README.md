@@ -9,9 +9,12 @@
 After you install Xcode in your mac, follow the steps below:
 
 1. Open `VisualSP.xcodeproj` in Xcode.
+
 2. Click Product/Run once you choose the Scheme("VisualSP") pointed at the screenshot.\
-![Build/Run]\
+![Build/Run](https://github.com/Eagle19243/VisualSP_macOS/blob/master/screenshot/1.png)
+![Build/Run](https://github.com/Eagle19243/VisualSP_macOS/blob/master/screenshot/2.png)
 Then VisualSP app will be shown.
+
 3. To see Safari App Extension, follow the instructions that you see in the screen of the app.
 
 ## How to make changes of injected script
