@@ -8,10 +8,11 @@
 ## Instruction to build/run App and Safari App Extension in Xcode
 After you install Xcode in your mac, follow the steps below:
 
-Click Product/Run once you choose the Scheme("VisualSP") pointed at the screenshot.\
-![Build/Run] 
-Then VisualSP app will be shown.
-To see Safari App Extension, follow the instructions that you see in the screen of the app.
+1. Open `VisualSP.xcodeproj` in Xcode.\
+2. Click Product/Run once you choose the Scheme("VisualSP") pointed at the screenshot.\
+![Build/Run]\
+Then VisualSP app will be shown.\
+3. To see Safari App Extension, follow the instructions that you see in the screen of the app.
 
 ## How to make changes of injected script
 In background, VisualSP Safari App Extension uses `bootstrap.min.js` as an injected script.
