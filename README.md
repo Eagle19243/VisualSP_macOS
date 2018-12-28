@@ -45,3 +45,5 @@ gulp build-Test
 ```
 gulp build-Release
 ```
+
+After you build bootstrap.min.js successfully, you should rebuild App and Safari App Extension in Xcode.
